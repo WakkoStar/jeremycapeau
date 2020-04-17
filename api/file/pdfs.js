@@ -41,7 +41,7 @@ const add = async(req, res) => {
     const pdfsData = new Pdfs(pdf);
     await pdfsData.save();
     //redirect user
-    return res.redirect("http://localhost:3000/dashboard/fichiers");
+    return res.redirect("http://jeremycapeau.fr/dashboard/fichiers");
   } catch (e) {
     console.log(e)
     return res.sendStatus(500)

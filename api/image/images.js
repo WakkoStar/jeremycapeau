@@ -129,7 +129,7 @@ const add = async(req, res) => {
       )
     }
     //redirect user
-    return res.redirect("http://localhost:3000/dashboard/images");
+    return res.redirect("http://jeremycapeau.fr/dashboard/images");
 
   } catch (e) {
     console.log(e)

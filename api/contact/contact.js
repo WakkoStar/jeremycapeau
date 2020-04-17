@@ -24,7 +24,7 @@ const add = async(req, res) => {
     const contactData = new Contact(contact);
     await contactData.save();
     //redirect user
-    return res.redirect("http://localhost:3000/dashboard/contact");
+    return res.redirect("http://jeremycapeau.fr/dashboard/contact");
   }catch(e){
     return res.sendStatus(500)
   }
@@ -69,7 +69,7 @@ const modify = async(req, res) => {
       await Contact.updateOne({_id: id},{nom, link_id: link});
     }
     //redirect user
-    return res.redirect("http://localhost:3000/dashboard/contact");
+    return res.redirect("http://jeremycapeau.fr/dashboard/contact");
 
   } catch (e) {
     console.log(e);

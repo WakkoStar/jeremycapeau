@@ -43,7 +43,7 @@ const modify = async(req, res) => {
       await Apropos.updateOne({_id: "5e836b90d6a53a1844345288"},{texte})
     }
     //redirect user
-    return res.redirect("http://localhost:3000/dashboard/apropos");
+    return res.redirect("http://jeremycapeau.fr/dashboard/apropos");
   }catch(e){
     return res.sendStatus(500)
   }
