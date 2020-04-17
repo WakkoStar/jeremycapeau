@@ -1,0 +1,41 @@
+import React,{useState, useEffect} from 'react'
+import API from "../utils/API";
+import { LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import config from "../config.js"
+
+const Contact = () => {
+
+  const [contacts, setContacts] = useState([]);
+
+  useEffect( ()=>{
+    viewContact();
+  },[])
+
+  const viewContact = async() => {
+    const contacts = await API.contactView();
+    setContacts(contacts.data.contacts);
+  }
+
+  return (
+    <div className="Contact">
+      {
+        contacts.map(
+          contact => {
+            let link = config.serverUrl + "/logos/" + contact.picture_id
+
+            return (
+                <a href={contact.link_id}>
+                  <LazyLoadImage src={link} effect="opacity"/>
+                  <p>{contact.nom}</p>
+                </a>
+            )
+          }
+        )
+      }
+    </div>
+  )
+
+}
+
+export default Contact;

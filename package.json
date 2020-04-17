@@ -1,0 +1,71 @@
+{
+  "name": "JeremyCapeauAPI",
+  "version": "1.0.0",
+  "description": "API for the website Jeremy Capeau",
+  "license": "ISC",
+  "main": "server.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.18.2",
+    "concurrently": "^5.1.0",
+    "cookie": "^0.4.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "create-react-app": "^1.5.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.2",
+    "express-fileupload": "^1.1.6",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "fontfaceobserver": "^2.1.0",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.0.7",
+    "node-sass": "^4.13.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-device-detect": "^1.11.14",
+    "react-dom": "^16.13.1",
+    "react-lazy-load-image-component": "^1.4.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-scroll-horizontal": "^1.6.4",
+    "react-transition-group": "^4.3.0",
+    "react-youtube": "^7.11.1",
+    "mongodb": "*"
+  },
+  "scripts": {
+    "server": "node server",
+    "server-dev": "nodemon server.js",
+    "client": "react-scripts start",
+    "build": "react-scripts build",
+    "start": "npm run server",
+    "start-dev": "concurrently \"npm run server-dev\" \"npm run client\"",
+    "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build"
+  },
+  "proxy": "http://localhost:9000",
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  },
+  "engines": {
+    "node": "^12",
+    "npm": "*"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
