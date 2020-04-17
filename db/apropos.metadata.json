@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"db.apropos"},{"v":{"$numberInt":"2"},"unique":true,"key":{"picture_id":{"$numberInt":"1"}},"name":"picture_id_1","ns":"db.apropos","background":true}],"uuid":"c64e8eaca9fd452abd6f0f8857d0b3ce"}
