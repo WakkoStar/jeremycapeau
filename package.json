@@ -54,7 +54,7 @@
     "start-dev": "concurrently \"npm run server-dev\" \"npm run client\"",
     "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build"
   },
-  "proxy": "http://localhost:9000",
+  "proxy": "http://localhost:8080",
   "devDependencies": {
     "nodemon": "^2.0.0"
   },
