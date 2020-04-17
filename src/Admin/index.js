@@ -25,7 +25,7 @@ export function Dashboard() {
             <div className="dashboard">
                 <div id="nav-dashboard">
                   <ul>
-                    <li><a href={config.website}>Le site</a></li>
+                    <li><a href="http://jeremycapeau.fr">Le site</a></li>
                     <li><Link to={`${url}/categories`}>Categories</Link></li>
                     <li><Link to={`${url}/images`}>Images</Link></li>
                     <li><Link to={`${url}/contact`}>Contact</Link></li>
