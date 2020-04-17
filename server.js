@@ -81,10 +81,12 @@ app.use("/api/contact", contact);
 const apropos = require(__dirname + "/api/bio/aproposController");
 app.use('/api/apropos', apropos);
 
+/*
 //react
 app.get('*',(req, res) => {
   res.sendFile('index.html', {root : path.join(__dirname, 'public')})
 })
+*/
 
 //Définition et mise en place du port d'écoute
 const port = 8080;
