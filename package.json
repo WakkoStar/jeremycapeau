@@ -50,7 +50,7 @@
     "server-dev": "nodemon server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
-    "start": "npm run server",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "start-dev": "concurrently \"npm run server-dev\" \"npm run client\"",
     "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build"
   },
