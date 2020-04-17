@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5e85fa7681c2817d387e5421"},"email":"hugodelpia","password":"$2b$10$RGYvrTIktGKjKE7Laaa4/u0DqLmFeIhPeLTdLv0gstR93HZHWqZke","created_at":{"$date":"2020-04-02T14:45:10.088Z"},"updatedAt":{"$date":"2020-04-02T14:45:10.088Z"},"__v":0}
