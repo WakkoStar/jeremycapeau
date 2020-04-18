@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import {BrowserRouter as Router} from "react-router-dom";
 import Navbar from "./Navbar"
 import Main from "./Main"
 
@@ -8,7 +7,6 @@ import "./styles/site.sass"
 import API from "../utils/API";
 
 const Site = () => {
-
   const[categories, setCategories] = useState([]);
 
   useEffect(() => {

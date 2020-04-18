@@ -62,7 +62,7 @@
     "node": "^12",
     "npm": "*"
   },
-  "homepage": ".",
+  "homepage": "../",
   "browserslist": [
     ">0.2%",
     "not dead",

@@ -13,26 +13,26 @@ const Main = (props) => {
 
   return (
      <Switch>
-           <Route exact path="">
+           <Route exact path="/">
              <Rubriques cat={categories}/>
            </Route>
           {
             categories.map((categorie) => {
               let path = "/" + categorie.nom
               return(
-                <Route exact path={path} key={categorie._id}>
+                <Route path={path} key={categorie._id}>
                     <Gallery categorie={categorie}/>
                 </Route>
               )
             })
           }
-          <Route exact path="/tarifs">
+          <Route path="/tarifs">
             <Tarifs />
           </Route>
-          <Route exact path="/a-propos">
+          <Route path="/a-propos">
             <Apropos />
           </Route>
-          <Route exact path="/contact">
+          <Route path="/contact">
             <Contact />
           </Route>
      </Switch>
