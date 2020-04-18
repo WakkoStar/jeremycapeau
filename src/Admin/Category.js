@@ -61,7 +61,7 @@ const Category = () => {
                 <div key={category._id} className="category">
                   <div style={{backgroundImage: `url(${link})`}}>
                     <div className="select">
-                      <Link to={`./${category._id}`}>
+                      <Link to={`./rubrique/${category._id}`}>
                         <img src="../../images/add.png" alt="Ajouter"/>
                       </Link>
                       <div className="tiers" onClick={() => setCatSelected(category)}>

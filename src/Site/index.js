@@ -30,10 +30,8 @@ const Site = () => {
 
   return(
       <div className="main_site">
-      <Router basename="">
         <Navbar cat={categories}/>
         <Main cat={categories}/>
-      </Router>
       </div>
   )
 }

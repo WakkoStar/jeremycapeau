@@ -22,6 +22,7 @@ export function Dashboard() {
 
       return (
           <Router>
+          <Switch>
             <div className="dashboard">
                 <div id="nav-dashboard">
                   <ul>
@@ -54,9 +55,12 @@ export function Dashboard() {
                   <Route exact path={`${path}/apropos`}>
                     <Apropos/>
                   </Route>
-                  <Route exact path={`${path}/:id`} children={<Rubrique/>} />
+                  <Route exact path={`${path}/rubrique/:id`}>
+                    <Rubrique/>
+                  </Route>
                 </div>
             </div>
+          </Switch>
           </Router>
         );
 }

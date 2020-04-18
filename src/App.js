@@ -4,7 +4,6 @@ import PrivateRoute from "./Admin/PrivateRoute.js";
 import { Dashboard } from "./Admin/index.js";
 import Site from "./Site/index.js";
 import { Login } from "./Auth/Login.js";
-
 import './App.css'
 
 export default function App() {
@@ -13,9 +12,9 @@ export default function App() {
         <div className="App">
             <Router>
               <Switch>
-                <Route exact path="/user" component={Login} />
+                <Route path="/user" component={Login} />
                 <PrivateRoute component={Dashboard} path="/dashboard"/>
-                <Route path="" component={Site} />
+                <Route eaxt path="" component={Site} />
               </Switch>
             </Router>
         </div>

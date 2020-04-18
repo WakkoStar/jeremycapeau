@@ -13,6 +13,9 @@ const Main = (props) => {
 
   return (
      <Switch>
+           <Route exact path="">
+             <Rubriques cat={categories}/>
+           </Route>
           {
             categories.map((categorie) => {
               let path = "/" + categorie.nom
@@ -23,9 +26,6 @@ const Main = (props) => {
               )
             })
           }
-          <Route exact path="/">
-            <Rubriques cat={categories}/>
-          </Route>
           <Route exact path="/tarifs">
             <Tarifs />
           </Route>

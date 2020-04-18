@@ -27,7 +27,7 @@ const app = express();
 //Fichiers statiques
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'build')));
 //fileUpload
 app.use(fileUpload({createParentPath: true}));
 //cors
@@ -84,7 +84,7 @@ app.use('/api/apropos', apropos);
 
 //react
 app.get('*',(req, res) => {
-  res.sendFile('index.html', {root : path.join(__dirname, 'public')})
+  res.sendFile('index.html', {root : path.join(__dirname, 'build')})
 })
 
 
