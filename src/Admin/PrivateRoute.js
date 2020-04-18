@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { Route} from 'react-router-dom';
 import API from '../utils/API';
-import config from "../config.js"
 
 const PrivateRoute = ({component: Component, ...rest}) => {
 

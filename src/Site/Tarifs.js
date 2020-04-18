@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react'
 import API from "../utils/API";
 import { LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import config from "../config.js"
 
 const Tarifs = () => {
 
@@ -26,7 +25,7 @@ const Tarifs = () => {
     </p>
     {
       pdfs.map( (file) => {
-        let link = config.serverUrl + "/files/" + file.file_id
+        let link =  "../../files/" + file.file_id
 
         return (
           <a href={link}>

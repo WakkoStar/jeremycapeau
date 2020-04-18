@@ -1,4 +1,4 @@
-import config from "../config.js"
+
 const setLink = (id) => {
 
   const bIsLink = id.startsWith("http")

@@ -4,7 +4,6 @@ import { LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import HorizontalScroll from 'react-scroll-horizontal'
 import {isMobile} from "react-device-detect";
-import config from "../config.js"
 
 const Gallery = (props) => {
   const [rubriques, setRubriques] = useState([])
@@ -42,7 +41,7 @@ const Gallery = (props) => {
                 </span>
               )
             }else{
-              let link = config.serverUrl + "/images/" + rubrique.img_data
+              let link = "../../images/" + rubrique.img_data
               return <LazyLoadImage key={rubrique._id} src={link} effect="opacity" />
             }
           })
@@ -69,7 +68,7 @@ const Gallery = (props) => {
                 </a>
               )
             }else{
-              let link = config.serverUrl + "/images/" + rubrique.img_data
+              let link =  "../../images/" + rubrique.img_data
               return <LazyLoadImage key={rubrique._id} src={link} effect="opacity" />
             }
           })

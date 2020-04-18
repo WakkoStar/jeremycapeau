@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import API from "../utils/API"
 import $ from "jquery";
-import config from "../config.js"
 
 const Contact = () => {
 

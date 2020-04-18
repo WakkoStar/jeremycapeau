@@ -10,7 +10,6 @@ import Contact from './Contact'
 import Pdfs from './Pdfs'
 import Apropos from './Apropos'
 import Rubrique from './Rubrique'
-import config from "../config.js"
 
 export function Dashboard() {
 

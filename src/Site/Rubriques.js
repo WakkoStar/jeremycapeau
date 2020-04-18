@@ -4,7 +4,6 @@ import $ from "jquery";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-import config from "../config.js"
 
 const Rubriques = (props) => {
   return (
@@ -12,7 +11,7 @@ const Rubriques = (props) => {
       {
         props.cat.map( (categorie, index) => {
 
-          let link = config.serverUrl + '/preview/' + categorie.preview_id
+          let link =  '../../preview/' + categorie.preview_id
           let path = "/" + categorie.nom
           if(categorie.visible){
             return(
