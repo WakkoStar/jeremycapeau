@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\api",
+    "\\api\\category",
+    "\\api\\gallery",
+    "\\api\\image",
+    "\\public",
+    "\\public\\static",
+    "\\public\\static\\js",
+    "\\src",
+    "\\src\\Admin"
+  ],
+  "SelectedNode": "\\src\\Admin\\index.js",
+  "PreviewInSolutionExplorer": false
+}
