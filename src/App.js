@@ -14,7 +14,7 @@ export default function App() {
               <Switch>
                 <Route path="/user" component={Login} />
                 <PrivateRoute component={Dashboard} path="/dashboard"/>
-                <Route eaxt path="" component={Site} />
+                <Route exact path="" component={Site} />
               </Switch>
             </Router>
         </div>
