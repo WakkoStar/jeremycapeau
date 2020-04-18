@@ -31,7 +31,7 @@ const Pdfs = () => {
       <div className="main_dashboard">
       {
         pdfs.map( file => {
-          let link = config.serverUrl + "/files/" + file.file_id
+          let link = "../../files/" + file.file_id
 
           return (
             <div className="pdfs" key={file._id}>
@@ -51,7 +51,7 @@ const Pdfs = () => {
       <div className="sidebar_dashboard">
         <div>
           <h1>Ajouter un fichier</h1>
-          <form onSubmit={disableButtons} action={config.serverUrl + '/api/pdfs/add'} method='post' encType="multipart/form-data">
+          <form onSubmit={disableButtons} action='/api/pdfs/add' method='post' encType="multipart/form-data">
               <label htmlFor="data">Importer un fichier</label>
               <input type="file" id="data" name="data" required/>
               <p>Nom</p>

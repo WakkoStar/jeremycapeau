@@ -43,7 +43,7 @@ const Contact = () => {
       {
         contacts.map(
           contact => {
-            let link = config.serverUrl + "/logos/" + contact.picture_id
+            let link = "../../logos/" + contact.picture_id
 
             return (
               <div key={contact._id} className="contact" onClick={() => selectContact(contact)}>
@@ -64,7 +64,7 @@ const Contact = () => {
       <div className="sidebar_dashboard">
         <div>
           <h1>Ajouter</h1>
-          <form onSubmit={disableButtons} action={config.serverUrl + '/api/contact/add'} method='post' encType="multipart/form-data">
+          <form onSubmit={disableButtons} action='/api/contact/add' method='post' encType="multipart/form-data">
                 <label htmlFor="add_logo">Importer une image</label>
               <input type="file" name="logo" id="add_logo" required/>
               <p>Nom du contact</p>
@@ -77,7 +77,7 @@ const Contact = () => {
 
         <div style={{display: idSelected ? "flex": "none"}}>
           <h1>Modifier</h1>
-          <form onSubmit={disableButtons} action={config.serverUrl + '/api/contact/modify'} method='post' encType="multipart/form-data">
+          <form onSubmit={disableButtons} action='/api/contact/modify' method='post' encType="multipart/form-data">
               <label htmlFor="modify_logo">Modifier l'image</label>
               <input type="file" name="logo" id="modify_logo"/>
               <p>Nom du contact</p>

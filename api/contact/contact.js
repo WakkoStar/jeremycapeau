@@ -61,7 +61,7 @@ const modify = async(req, res) => {
       });
       //get previous contact and delete it
       const contactPrevious = await Contact.findOne({_id : id});
-      fs.unlinkSync('public/logos/'+contactPrevious.picture_id);
+      fs.unlink('public/logos/'+contactPrevious.picture_id, () => {});
       //update contact
       await Contact.updateOne({_id: id},{nom : nom, picture_id: logo.name, link_id: link });
     //else update only the name
@@ -87,7 +87,7 @@ const deleteC = async(req, res) => {
     //get previous contact and delete it
     const contactPrevious = await Contact.findOne({_id : id});
     //delete
-    fs.unlinkSync('public/logos/'+contactPrevious.picture_id)
+    fs.unlink('public/logos/'+contactPrevious.picture_id, () => {})
     await Contact.deleteOne({_id: id});
 
     return res.status(200).json({msg: "Contact supprimé > " + contactPrevious.nom})

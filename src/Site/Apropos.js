@@ -18,7 +18,7 @@ const Apropos = () => {
     setData(data.data.apropos);
   }
 
-  let link = config.serverUrl + "/biopic/" + data.picture_id
+  let link = "../../biopic/" + data.picture_id
 
   return (
     <div className="Apropos">

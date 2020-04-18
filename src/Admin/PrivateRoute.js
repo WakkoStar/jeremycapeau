@@ -19,7 +19,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
         }
       })
       .catch((err) => {
-        document.location.href= config.website + "/user";
+        document.location.href=  "http://jeremycapeau/user";
       })
     }
 

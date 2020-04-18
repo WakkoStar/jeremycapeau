@@ -62,7 +62,7 @@ const Images = () => {
       <div className="sidebar_dashboard">
         <div>
           <h1>Ajouter</h1>
-          <form onSubmit={disableButtons} action={config.serverUrl +'/api/images/add'} method='post' encType="multipart/form-data">
+          <form onSubmit={disableButtons} action='/api/images/add' method='post' encType="multipart/form-data">
               <label htmlFor="datas">{countFiles} fichier(s) selectionné(s)</label>
               <input type="file" id="datas" name="datas" multiple required onChange={displayFiles}/>
               <input type="submit" value='Confirmer'/>
@@ -70,11 +70,10 @@ const Images = () => {
         </div>
         <div>
           <h1>Ajouter vidéo</h1>
-          <form onSubmit={disableButtons} action={config.serverUrl +'/api/images/add'} method='post' encType="multipart/form-data">
+          <form onSubmit={disableButtons} action='/api/images/add' method='post' encType="multipart/form-data">
               <p>Lien vidéo</p>
               <input type="text" id="data" name="data" required/>
               <input type="submit" value='Confirmer'/>
-              <input type="hidden" name="token" value={localStorage.getItem('token')}/>
           </form>
         </div>
       </div>

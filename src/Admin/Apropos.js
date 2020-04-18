@@ -22,7 +22,7 @@ const Apropos = () => {
     $("input[type='submit']").prop('disabled', 'true')
   }
 
-  let link = config.serverUrl + "/biopic/" + data.picture_id
+  let link = "../../biopic/" + data.picture_id
 
   return (
     <div className="body_dashboard">
@@ -34,7 +34,7 @@ const Apropos = () => {
 
       <div className="sidebar_dashboard">
         <div>
-          <form onSubmit={disableButtons} action={config.serverUrl + '/api/apropos/modify'} method='post' encType="multipart/form-data">
+          <form onSubmit={disableButtons} action='/api/apropos/modify' method='post' encType="multipart/form-data">
               <h1>Modifier</h1>
                 <label htmlFor="data">Importer un fichier</label>
                 <input type="file" id="data" name="picture_id"/>

@@ -8,7 +8,7 @@ const setLink = (id) => {
     const videoID = id.replace("https://www.youtube.com/embed/", "")
     link = "https://img.youtube.com/vi/"+ videoID +"/0.jpg"
   }else{
-    link = config.serverUrl + "/preview/" + id
+    link =  "../../preview/" + id
   }
   return link;
 }
