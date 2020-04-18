@@ -84,10 +84,8 @@ app.use('/api/apropos', apropos);
 
 //react
 app.get('*',(req, res) => {
-  res.sendFile('index.html', {root : path.join(__dirname, 'build')})
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
-
-
 
 //Définition et mise en place du port d'écoute
 const port = 8080;
