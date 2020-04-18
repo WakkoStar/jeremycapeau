@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router,} from "react-router-dom";
+import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
 import PrivateRoute from "./Admin/PrivateRoute.js";
 import { Dashboard } from "./Admin/index.js";
 import Site from "./Site/index.js";
