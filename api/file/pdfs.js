@@ -64,7 +64,7 @@ const deleteC = async(req, res) => {
     })
     await Pdfs.deleteOne({_id: id})
 
-    return res.status(200).json({msg: pdfPrevious.file_id + "supprimé"})
+    return res.status(200).json({msg: pdfPrevious.file_id + " supprimé"})
 
   } catch (e) {
 

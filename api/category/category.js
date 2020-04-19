@@ -89,7 +89,7 @@ const modify = async(req, res) => {
     }
 
     return res.status(200).json({
-      msg: "Catégorie modifié :" + msgDetails
+      msg: "Catégorie modifié : " + msgDetails
     })
 
   }catch (e){

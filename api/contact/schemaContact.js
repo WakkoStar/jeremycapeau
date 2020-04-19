@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const contactSchema = mongoose.Schema(
   {
-    nom  :{
+    nom:{
       type: String,
       required: true
     },

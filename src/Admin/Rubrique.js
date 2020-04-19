@@ -65,8 +65,6 @@ const Rubrique = () => {
     const res = await API.rubriqueView();
     const gallery = res.data.gallery.filter(rubrique => rubrique.category_id === id)
 
-    console.log(gallery)
-    console.log(rubriques)
     for (var i = 0; i < rubriques.length; i++) {
       const {_id, img_id, img_data} = rubriques[i]
 
@@ -82,7 +80,6 @@ const Rubrique = () => {
         await API.rubriqueDelete(id, gallery[j].img_id);
       }
     }
-
     window.location.reload();
   }
 

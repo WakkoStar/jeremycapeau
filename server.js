@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const fileUpload = require('express-fileupload');
-const  session = require('express-session')
+const session = require('express-session')
 const cors = require('cors')
 const path = require('path');
 const MongoStore = require('connect-mongo')(session);
@@ -26,9 +26,7 @@ mongoose.set('useCreateIndex', true);
 //On définit notre objet express nommé app
 const app = express();
 //Fichiers statiques
-
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'build')));
 //fileUpload
 app.use(fileUpload({createParentPath: true}));
 //cors
@@ -44,13 +42,10 @@ var sess = {
   resave: false,
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
-  cookie: {maxAge: 999999999 }
-}
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1) // trust first proxy
-  sess.cookie.secure = true // serve secure cookies
+  cookie: {maxAge: 60*60*24*7*2, secure: true} //2 semaines
 }
 app.use(session(sess))
+
 //Définition du routeur
 const router = express.Router();
 

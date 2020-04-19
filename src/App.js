@@ -4,7 +4,6 @@ import PrivateRoute from "./Admin/PrivateRoute.js";
 import { Dashboard } from "./Admin/index.js";
 import Site from "./Site/index.js";
 import { Login } from "./Auth/Login.js";
-import './App.css'
 
 export default function App() {
 

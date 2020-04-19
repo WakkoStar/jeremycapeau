@@ -6,11 +6,9 @@
     "\\api\\gallery",
     "\\api\\image",
     "\\public",
-    "\\public\\static",
-    "\\public\\static\\js",
     "\\src",
     "\\src\\Admin"
   ],
-  "SelectedNode": "\\src\\Admin\\index.js",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }

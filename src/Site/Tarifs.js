@@ -28,7 +28,7 @@ const Tarifs = () => {
         let link =  "../../files/" + file.file_id
 
         return (
-          <a href={link}>
+          <a href={link} target="_blank">
             <LazyLoadImage src="../../images/pdf.png" effect="opacity"/>
             <p>{file.nom}</p>
           </a>

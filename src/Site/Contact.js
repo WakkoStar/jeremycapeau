@@ -24,7 +24,7 @@ const Contact = () => {
             let link =  "../../logos/" + contact.picture_id
 
             return (
-                <a href={contact.link_id}>
+                <a href={contact.link_id} target="_blank">
                   <LazyLoadImage src={link} effect="opacity"/>
                   <p>{contact.nom}</p>
                 </a>

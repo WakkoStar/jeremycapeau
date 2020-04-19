@@ -53,8 +53,7 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "start": "concurrently \"npm run server\" \"yarn run client\"",
-    "start-dev": "concurrently \"npm run server-dev\" \"npm run client\"",
-    "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build"
+    "start-dev": "concurrently \"npm run server-dev\" \"npm run client\""
   },
   "proxy": "http://localhost:8080",
   "devDependencies": {

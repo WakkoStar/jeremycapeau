@@ -27,7 +27,7 @@ const auth = async(req,res,next) => {
                     next();
                   })
               }else{
-                  console.log('pas trouvé : refreshToken')
+                  console.log('Pas trouvé : refreshToken')
                   return res.sendStatus(400)
               }
           })
@@ -39,7 +39,6 @@ const auth = async(req,res,next) => {
 const generateAccessToken = (user) => {
  return jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
 }
-
 
 exports.generateAccessToken = generateAccessToken;
 exports.auth = auth

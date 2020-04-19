@@ -22,7 +22,7 @@ const Apropos = () => {
   return (
     <div className="Apropos">
       <LazyLoadImage src={link} effect="opacity"/>
-        <div className="html" dangerouslySetInnerHTML={{__html: data.texte}}/>
+      <div className="html" dangerouslySetInnerHTML={{__html: data.texte}}/>
     </div>
   )
 

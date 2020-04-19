@@ -31,7 +31,7 @@ const modify = async(req, res) => {
       });
       //get previous img and delete it
       const aproposPrevious = await Apropos.findOne({_id: "5e836b90d6a53a1844345288"})
-      fs.unlinkSync('public/biopic/'+aproposPrevious.picture_id);
+      fs.unlink('public/biopic/'+aproposPrevious.picture_id, () => {});
       //Update A propos
       await Apropos.updateOne(
         {_id: "5e836b90d6a53a1844345288"},
