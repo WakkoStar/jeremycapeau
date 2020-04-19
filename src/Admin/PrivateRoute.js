@@ -18,7 +18,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
         }
       })
       .catch((err) => {
-        document.location.href=  "http://jeremycapeau.fr/user";
+        window.location =  "/user";
       })
     }
 

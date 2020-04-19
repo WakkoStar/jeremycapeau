@@ -1,1 +1,0 @@
-{"version":3,"sources":["opacity.css"],"names":[],"mappings":"AAAA,oCACE,+BAAiC,CACjC,SACF,CAEA,2DACE,SAAU,CACV,sBACF","file":"2.3f052e14.chunk.css","sourcesContent":[".lazy-load-image-background.opacity {\n  background-image: none !important;\n  opacity: 0;\n}\n\n.lazy-load-image-background.opacity.lazy-load-image-loaded {\n  opacity: 1;\n  transition: opacity .3s;\n}\n"]}

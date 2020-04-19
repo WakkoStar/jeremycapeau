@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch} from "react-router-dom";
 
 import "./styles/dashboard.sass"
@@ -13,10 +13,28 @@ import Rubrique from './Rubrique'
 
 export function Dashboard() {
 
+  useEffect(() => {
+    setAuth()
+  })
+
+  const setAuth = async() => {
+    API.isAuth()
+    .then( (res) => {
+      if(res.data.auth){
+        console.log('Connecté')
+      }
+    })
+    .catch((err) => {
+      alert('Vous n\'etes pas connecté');
+      window.location =  "/user";
+    })
+  }
+
     const disconnect = async() => {
         await API.logout();
         window.location = "/";
     };
+    
     let { path, url } = useRouteMatch();
 
       return (
@@ -31,6 +49,7 @@ export function Dashboard() {
                     <li><Link to={`${url}/contact`}>Contact</Link></li>
                     <li><Link to={`${url}/fichiers`}>Fichiers</Link></li>
                     <li><Link to={`${url}/apropos`}>A propos</Link></li>
+                    <li><a href="https://bulkresizephotos.com/fr" target="_blank">Compression</a></li>
                     <li>
                       <button onClick={disconnect}>
                           DISCONNECT

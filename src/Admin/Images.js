@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import API from "../utils/API"
 import setLink from './Link'
 import $ from "jquery";
-
+import base64Img from 'base64-img'
 const Images = () => {
 
   const [images, setImages] = useState([]);
@@ -10,12 +10,6 @@ const Images = () => {
 
   useEffect(() =>{
     viewImages();
-
-    setTimeout(function () {
-      const height = $('#images').height() / 2.8
-      $('#images').height(height)
-      $('#images').toggleClass("displayed")
-    }, 500);
   },[])
   const viewImages = async() => {
     const res = await API.imagesView();
@@ -51,7 +45,7 @@ const Images = () => {
 
   return (
     <div className="body_dashboard">
-      <div className="main_dashboard hidden" id="images" style={{width: "70%", flexDirection: "column", transitionDelay: "0"}}>
+      <div className="main_dashboard" id="images" style={{width: "70%"}}>
       {
         images.map((img, index) => {
           return <ImageDisplay key={img._id} img={img} index={index}/>

@@ -25,6 +25,7 @@ const Navbar = (props) => {
     $('li,#home').on('click', function(){
       $('nav').height("10vh")
       $('#links').css("visibility", "hidden")
+      $('#menu').attr('src', '../../images/cross.png')
       setDisplay(false)
     });
   }
@@ -34,9 +35,11 @@ const Navbar = (props) => {
       if(display){
         $('nav').height("10vh")
         $('#links').css("visibility", "hidden")
+        $('#menu').attr('src', '../../images/burger.png')
       }else{
         $('nav').height("100vh")
         $('#links').css("visibility", "visible")
+        $('#menu').attr('src', '../../images/cross.png')
       }
       setDisplay(!display)
     }
@@ -56,7 +59,7 @@ const Navbar = (props) => {
           <p>Vidéaste - Photographe, France: 06.40.49.95.63</p>
         </Link>
 
-        <img src="../../images/burger.png" alt="menu" onClick={toggleHeight}/>
+        <img id="menu" src="../../images/burger.png" alt="menu" onClick={toggleHeight}/>
       </div>
     </CSSTransition>
 

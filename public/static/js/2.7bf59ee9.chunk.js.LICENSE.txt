@@ -16,6 +16,13 @@ object-assign
    */
 
 /*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
  * UAParser.js v0.7.21
  * Lightweight JavaScript-based User-Agent string parser
  * https://github.com/faisalman/ua-parser-js
@@ -37,6 +44,8 @@ object-assign
  *
  * Date: 2020-04-10T15:07Z
  */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */
 
 /** @license React v0.19.1
  * scheduler.production.min.js

@@ -7,6 +7,7 @@ const fileUpload = require('express-fileupload');
 const  session = require('express-session')
 const cors = require('cors')
 const path = require('path');
+const MongoStore = require('connect-mongo')(session);
 //Connexion à la base de donnée
 mongoose
     .connect("mongodb://localhost/db", {useNewUrlParser: true, useUnifiedTopology: true})
@@ -39,6 +40,7 @@ app.use(bodyParser.json());
 
 //Session
 var sess = {
+  store: new MongoStore({mongooseConnection: mongoose.connection}),
   resave: false,
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
@@ -49,7 +51,6 @@ if (app.get('env') === 'production') {
   sess.cookie.secure = true // serve secure cookies
 }
 app.use(session(sess))
-
 //Définition du routeur
 const router = express.Router();
 

@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import HorizontalScroll from 'react-scroll-horizontal'
+import base64Img from 'base64-img'
 import {isMobile} from "react-device-detect";
 
 const Gallery = (props) => {
@@ -42,7 +43,7 @@ const Gallery = (props) => {
               )
             }else{
               let link = "../../images/" + rubrique.img_data
-              return <LazyLoadImage key={rubrique._id} src={link} effect="opacity" />
+              return <LazyLoadImage key={rubrique._id} src={base64Img.base64(link, function(err, data) {})} effect="opacity" />
             }
           })
         }
@@ -62,7 +63,7 @@ const Gallery = (props) => {
               const videoID = rubrique.img_data.replace("https://www.youtube.com/embed/", "")
               let link = "http://i3.ytimg.com/vi/"+ videoID +"/maxresdefault.jpg"
               return(
-                <a className='preview' href={rubrique.img_data}>
+                <a className='preview' href={rubrique.img_data} target="_blank">
                   <LazyLoadImage  key={rubrique._id} src={link} effect="opacity" />
                   <div><p>Visionner la vidéo</p></div>
                 </a>
