@@ -34,7 +34,7 @@ export function Dashboard() {
         await API.logout();
         window.location = "/";
     };
-    
+
     let { path, url } = useRouteMatch();
 
       return (

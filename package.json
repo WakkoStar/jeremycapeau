@@ -24,6 +24,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.0",
     "fontfaceobserver": "^2.1.0",
+    "helmet": "^3.22.0",
     "imagemin": "^7.0.1",
     "imagemin-jpegtran": "^6.0.0",
     "imagemin-mozjpeg": "^8.0.0",

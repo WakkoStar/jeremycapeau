@@ -8,6 +8,8 @@ const session = require('express-session')
 const cors = require('cors')
 const path = require('path');
 const MongoStore = require('connect-mongo')(session);
+const helmet = require('helmet');
+
 //Connexion à la base de donnée
 mongoose
     .connect("mongodb://localhost/db", {useNewUrlParser: true, useUnifiedTopology: true})
@@ -35,7 +37,9 @@ app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 const urlencodedParser = bodyParser.urlencoded({extended: true});
 app.use(urlencodedParser);
 app.use(bodyParser.json());
-
+//helmet
+app.use(helmet())
+app.disable('x-powered-by')
 //Session
 var sess = {
   store: new MongoStore({mongooseConnection: mongoose.connection}),
@@ -44,6 +48,11 @@ var sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {maxAge: 999999999999, secure: false} //2 semaines
 }
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+  sess.cookie.secure = true // serve secure cookies
+}
+
 app.use(session(sess))
 
 //Définition du routeur
