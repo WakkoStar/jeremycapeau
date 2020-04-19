@@ -45,7 +45,7 @@ const Images = () => {
 
   return (
     <div className="body_dashboard">
-      <div className="main_dashboard" id="images" style={{width: "70%"}}>
+      <div className="main_dashboard" id="images">
       {
         images.map((img, index) => {
           return <ImageDisplay key={img._id} img={img} index={index}/>

@@ -25,7 +25,7 @@ const Navbar = (props) => {
     $('li,#home').on('click', function(){
       $('nav').height("10vh")
       $('#links').css("visibility", "hidden")
-      $('#menu').attr('src', '../../images/cross.png')
+      $('#menu').attr('src', '../../images/burger.png')
       setDisplay(false)
     });
   }
