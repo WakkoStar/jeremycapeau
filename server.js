@@ -42,7 +42,7 @@ var sess = {
   resave: false,
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
-  cookie: {maxAge: 60*60*24*7*2, secure: true} //2 semaines
+  cookie: {maxAge: 999999999999, secure: false} //2 semaines
 }
 app.use(session(sess))
 
