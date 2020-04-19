@@ -1,6 +1,3 @@
 node_modules/**/*
-public/biopic/
-public/files/
-public/images/
-public/logos/
 public/preview/
+public/images/
