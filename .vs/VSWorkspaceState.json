@@ -4,12 +4,10 @@
     "\\api",
     "\\api\\bio",
     "\\api\\category",
-    "\\api\\gallery",
-    "\\api\\image",
-    "\\public",
     "\\src",
-    "\\src\\Admin"
+    "\\src\\Site",
+    "\\src\\Site\\styles"
   ],
-  "SelectedNode": "\\api\\bio\\bio.js",
+  "SelectedNode": "\\src\\Site\\Navbar.js",
   "PreviewInSolutionExplorer": false
 }
