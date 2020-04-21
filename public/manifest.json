@@ -1,6 +1,6 @@
 {
-  "short_name": "Jeremy Capeau",
-  "name": "Site web de Jérémy Capeau",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

@@ -3,11 +3,12 @@ import {Link} from "react-router-dom";
 import $ from "jquery";
 import { CSSTransition } from 'react-transition-group';
 import FontFaceObserver from 'fontfaceobserver'
-import {isMobile} from "react-device-detect";
+
 const Navbar = (props) => {
 
   const [display, setDisplay] = useState(true)
   const [fontAvailable, setFontAvailable] = useState(false)
+  const isMobile = window.screen.availWidth < 500
 
   useEffect(() =>{
     var font = new FontFaceObserver('Oswald', {weight: 400});

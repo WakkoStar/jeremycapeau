@@ -1,13 +1,18 @@
 import React,{useState, useEffect} from 'react'
 import API from "../utils/API";
+
 import { LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+
 import HorizontalScroll from 'react-scroll-horizontal'
-import {isMobile} from "react-device-detect";
+
 
 const Gallery = (props) => {
+
   const [rubriques, setRubriques] = useState([])
-  const {categorie} = props
+  const { categorie } = props
+  const isMobile = window.screen.availWidth < 500
 
   useEffect(() => {
 
@@ -42,7 +47,8 @@ const Gallery = (props) => {
               )
             }else{
               let link = "../../images/" + rubrique.img_data
-              return <LazyLoadImage key={rubrique._id} src={link} effect="opacity" />
+              let preview = "../../preview/" + rubrique.img_data
+              return <LazyLoadImage key={rubrique._id} src={link} placeholderSrc={preview} effect="opacity" />
             }
           })
         }
@@ -57,19 +63,23 @@ const Gallery = (props) => {
         >
         {
           rubriques.map( (rubrique) => {
+            let link = "";
+            let preview = "";
             const bIsLink = rubrique.img_data.startsWith("http")
             if(bIsLink){
               const videoID = rubrique.img_data.replace("https://www.youtube.com/embed/", "")
-              let link = "http://i3.ytimg.com/vi/"+ videoID +"/maxresdefault.jpg"
+              link = "http://i3.ytimg.com/vi/"+ videoID +"/maxresdefault.jpg"
+              preview = link
               return(
                 <a className='preview' href={rubrique.img_data} target="_blank">
-                  <LazyLoadImage  key={rubrique._id} src={link} effect="opacity" />
+                  <LazyLoadImage key={rubrique._id} src={link} placeholderSrc={preview} effect="opacity" />
                   <div><p>Visionner la vidéo</p></div>
                 </a>
               )
             }else{
-              let link =  "../../images/" + rubrique.img_data
-              return <LazyLoadImage key={rubrique._id} src={link} effect="opacity" />
+              link =  "../../images/" + rubrique.img_data
+              preview = "../../preview/" + rubrique.img_data
+              return <LazyLoadImage key={rubrique._id} src={link} placeholderSrc={preview} effect="opacity" />
             }
           })
         }
