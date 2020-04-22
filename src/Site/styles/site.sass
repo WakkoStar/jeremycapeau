@@ -28,6 +28,9 @@ $black: #444141
           a
             text-decoration: none
             color: $black
+            h1#jeremy
+              margin-left: 0.3vw
+              font-size: 4.2vw
             h1
               font-family: $titlefont
               margin: 0
@@ -96,42 +99,37 @@ $black: #444141
 
       .Gallery
         display: flex
-        height: 97vh
+        height: 100vh
+        padding-left: 23%
         width: 100%
         overflow: hidden
-        padding-left: 23%
-        a.preview:hover
+        a:hover
           div
             opacity: 1
-        a.preview
-          height: 100vh
-          margin-left: 1px
+        span, a
           position: relative
           text-decoration: none
           div
             position: absolute
-            z-index: 0
-            height: 100%
-            width: 100%
-            top: 0
             opacity: 0
-            transition: all .2s
-            display: flex
-            align-items: center
-            background-color: rgba(25, 38, 47, 0.6)
-            p
-              font-size: 1.3vw
-              font-family: $videofont
-              color: white
-              width: 100%
-              text-transform: uppercase
-              text-align: center
-          span
+            transition: all .3s
+            z-index: 2
+            width: 100%
             height: 100%
-        img
-          height: 100%
-          margin-left: 1px
-          position: relative
+            background-color: rgba(0, 0, 0, 0.4)
+            top: 0
+            left: 0
+            p
+              font-family: $videofont
+              font-size: 1vw
+              text-transform: uppercase
+              width: 100%
+              height: 20%
+              text-align: center
+              margin-top: 48vh
+              color: white
+          img
+            height: 100vh
 
       .Apropos
         display: flex
@@ -149,7 +147,6 @@ $black: #444141
           font-family: $navfont
           text-align: left
           line-height: 1.6vw
-
       .Tarifs,.Contact
         display: flex
         margin-left: 23%
@@ -185,7 +182,11 @@ $black: #444141
             width: 100%
             margin: 0
             padding: 0
-
+      .Contact
+        height: 80vh
+        flex-direction: column
+        padding: 10vh 0
+        
 @media screen and (max-width: 500px)
   .main_site
     display: flex

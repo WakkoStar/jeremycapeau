@@ -39,7 +39,7 @@ const Pdfs = () => {
                   <img src="../../images/bin.png" alt="Supprimer"/>
                 </div>
               </div>
-              <a href={link} target="_blank">{file.nom}</a>
+              <a href={link} target="_blank" rel="noopener noreferrer">{file.nom}</a>
             </div>
           )
 

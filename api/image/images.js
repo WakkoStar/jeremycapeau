@@ -12,7 +12,7 @@ const imageminJpegtran = require('imagemin-jpegtran');
 //////VIEW
 const view = async(req, res) => {
   //find images
-  const images = await Images.find({}).sort({_id: 'desc'});;
+  const images = await Images.find({}).sort({index: 'desc'});;
 
   if(!images){
     return res.sendStatus(400)

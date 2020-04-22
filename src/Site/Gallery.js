@@ -2,11 +2,9 @@ import React,{useState, useEffect} from 'react'
 import API from "../utils/API";
 
 import { LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import HorizontalScroll from 'react-scroll-horizontal'
-
 
 const Gallery = (props) => {
 
@@ -31,7 +29,41 @@ const Gallery = (props) => {
   },[categorie])
 
 
+  const ImageDisplay = (props) => {
+    const {rubrique} = props
+    let link =  "../../images/" + rubrique.img_data
+    let preview = "../../preview/" + rubrique.img_data
 
+    return <LazyLoadImage
+      key={rubrique._id}
+      src={link}
+      placeHoldersrc={preview}
+      effect="opacity"
+    />
+  }
+
+  const VideoDisplay = (props) => {
+    const {rubrique} = props
+    const videoID = rubrique.img_data.replace("https://www.youtube.com/embed/", "")
+    let link = "http://i3.ytimg.com/vi/"+ videoID +"/maxresdefault.jpg"
+    let preview = link
+
+    return(
+      <a
+        href={rubrique.img_data}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LazyLoadImage
+          key={rubrique._id}
+          src={link}
+          placeHoldersrc={preview}
+          effect="opacity"
+        />
+        <div><p>Visionner la vidéo</p></div>
+      </a>
+    )
+  }
 
   if(isMobile){
     return (
@@ -46,9 +78,7 @@ const Gallery = (props) => {
                 </span>
               )
             }else{
-              let link = "../../images/" + rubrique.img_data
-              let preview = "../../preview/" + rubrique.img_data
-              return <LazyLoadImage key={rubrique._id} src={link} placeholderSrc={preview} effect="opacity" />
+              return <ImageDisplay rubrique={rubrique} />
             }
           })
         }
@@ -56,38 +86,26 @@ const Gallery = (props) => {
     )
   }else{
     return (
+
       <div className="Gallery">
-        <HorizontalScroll
-          reverseScroll = {true}
-          style= {{position:'inherit', width: 'auto'}}
-        >
+      <HorizontalScroll
+      reverseScroll={true}
+      style={{position:'inherit', display:'flex'}}
+      >
         {
           rubriques.map( (rubrique) => {
-            let link = "";
-            let preview = "";
             const bIsLink = rubrique.img_data.startsWith("http")
             if(bIsLink){
-              const videoID = rubrique.img_data.replace("https://www.youtube.com/embed/", "")
-              link = "http://i3.ytimg.com/vi/"+ videoID +"/maxresdefault.jpg"
-              preview = link
-              return(
-                <a className='preview' href={rubrique.img_data} target="_blank">
-                  <LazyLoadImage key={rubrique._id} src={link} placeholderSrc={preview} effect="opacity" />
-                  <div><p>Visionner la vidéo</p></div>
-                </a>
-              )
+                return <VideoDisplay rubrique={rubrique} />
             }else{
-              link =  "../../images/" + rubrique.img_data
-              preview = "../../preview/" + rubrique.img_data
-              return <LazyLoadImage key={rubrique._id} src={link} placeholderSrc={preview} effect="opacity" />
+                return <ImageDisplay rubrique={rubrique} />
             }
           })
         }
         </HorizontalScroll>
-      </div>
+        </div>
     )
   }
-
 }
 
 export default Gallery

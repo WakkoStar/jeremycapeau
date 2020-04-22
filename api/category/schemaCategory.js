@@ -13,6 +13,11 @@ const categorySchema = mongoose.Schema(
     visible: {
       type: Boolean,
       required: true
+    },
+    index: {
+      type: Number,
+      required: false,
+      index: true,
     }
   }
 );

@@ -56,7 +56,16 @@ const Navbar = (props) => {
     >
       <div id="logo">
         <Link to="./" id="home">
-          <h1>JEREMY CAPEAU</h1>
+        {
+          isMobile ? (
+            <h1>JEREMY CAPEAU</h1>
+          ):(
+            <>
+            <h1 id="jeremy">JEREMY </h1>
+            <h1>CAPEAU</h1>
+            </>
+          )
+        }
           <p>Vidéaste - Photographe, France: 06.40.49.95.63</p>
         </Link>
 
@@ -89,9 +98,9 @@ const Navbar = (props) => {
             })
           }
         </ul>
-        <h2>Sur</h2>
+        <h2>En savoir plus</h2>
         <ul>
-          <li><Link to="/tarifs">Tarifs</Link></li>
+          <li><Link to="/brochures">Brochure(s)</Link></li>
           <li><Link to="/a-propos">Bio</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>

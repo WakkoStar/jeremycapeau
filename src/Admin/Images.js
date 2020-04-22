@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react'
 import API from "../utils/API"
 import setLink from './Link'
 import $ from "jquery";
-import base64Img from 'base64-img'
 const Images = () => {
 
   const [images, setImages] = useState([]);

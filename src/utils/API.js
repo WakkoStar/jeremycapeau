@@ -37,6 +37,7 @@ export default {
       return axios.post(`/api/category/delete`, {id}, {headers})
     },
     categoryModify: function(category) {
+      console.log(category)
       return axios.post(`/api/category/modify`, {category}, {headers})
     },
 ///////////GALLERY/////////////////////

@@ -51,7 +51,7 @@ const Contact = () => {
                     <img src="../../images/pen.png" alt="Modifier"/>
                   </div>
                 </div>
-                <a href={contact.link_id} target='_blank'><p>{contact.nom}</p></a>
+                <a href={contact.link_id} target='_blank' rel="noopener noreferrer"><p>{contact.nom}</p></a>
               </div>
             )
 

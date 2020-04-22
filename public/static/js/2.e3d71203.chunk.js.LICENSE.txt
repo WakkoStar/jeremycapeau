@@ -16,13 +16,6 @@ object-assign
    */
 
 /*!
- * The buffer module from node.js, for the browser.
- *
- * @author   Feross Aboukhadijeh <http://feross.org>
- * @license  MIT
- */
-
-/*!
  * jQuery JavaScript Library v3.5.0
  * https://jquery.com/
  *
@@ -35,8 +28,6 @@ object-assign
  *
  * Date: 2020-04-10T15:07Z
  */
-
-/*! https://mths.be/punycode v1.4.1 by @mathias */
 
 /** @license React v0.19.1
  * scheduler.production.min.js

@@ -14,7 +14,8 @@ const add = async(req, res) => {
   const category = {
     nom: nom,
     visible: true,
-    preview_id: "preview.png"
+    preview_id: "preview.png",
+    index: await Category.countDocuments({})
   }
 
   //execute response
@@ -35,7 +36,7 @@ const add = async(req, res) => {
 ///VIEW
 const view = async(req, res) => {
   //find categories
-  const categories = await Category.find({});
+  const categories = await Category.find({}).sort({index: 'asc'});
 
   //execute response
   try {
@@ -77,22 +78,33 @@ const modify = async(req, res) => {
   //Execute response
   try{
     let msgDetails = "";
+
     //if we want to update the preview image
     if(category.preview_id){
       await Category.updateOne({_id: category._id}, {preview_id : category.preview_id})
       msgDetails = "" + category.preview_id;
     }
+
     //if we want to update the name
     if(category.nom){
       await Category.updateOne({_id: category._id}, {nom : category.nom, visible: category.visible})
       msgDetails = "" + category.nom;
     }
 
+    //if we want to update the index
+    if(category.from){
+      await Category.updateOne({_id: category.from._id}, {index : category.to.index})
+      await Category.updateOne({_id: category.to._id}, {index : category.from.index})
+      msgDetails = "" + category.from._id;
+    }
+
+
     return res.status(200).json({
       msg: "Catégorie modifié : " + msgDetails
     })
 
   }catch (e){
+    console.log(e)
     return res.sendStatus(500)
   }
 }

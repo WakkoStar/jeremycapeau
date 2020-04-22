@@ -26,7 +26,7 @@ const Main = (props) => {
               )
             })
           }
-          <Route path="/tarifs">
+          <Route path="/brochures">
             <Tarifs />
           </Route>
           <Route path="/a-propos">

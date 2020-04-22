@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, useRouteMatch} from "react-router-dom";
 
 import "./styles/dashboard.sass"
 
@@ -39,7 +39,6 @@ export function Dashboard() {
 
       return (
           <Router>
-            <Switch>
               <div className="dashboard">
                   <div id="nav-dashboard">
                     <ul>
@@ -49,7 +48,7 @@ export function Dashboard() {
                       <li><Link to={`${url}/contact`}>Contact</Link></li>
                       <li><Link to={`${url}/fichiers`}>Fichiers</Link></li>
                       <li><Link to={`${url}/apropos`}>A propos</Link></li>
-                      <li><a href="https://bulkresizephotos.com/fr" target="_blank">Compression</a></li>
+                      <li><a href="https://bulkresizephotos.com/fr" target="_blank" rel="noopener noreferrer">Compression</a></li>
                       <li>
                         <button onClick={disconnect}>
                             DISCONNECT
@@ -78,7 +77,6 @@ export function Dashboard() {
                     </Route>
                   </div>
               </div>
-            </Switch>
           </Router>
         );
 }

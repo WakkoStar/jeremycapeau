@@ -9,7 +9,7 @@ const Category = () => {
   const[categories, setCategories] = useState([]);
   const[nom, setNom] = useState(undefined);
   const [catSelected, setCatSelected] = useState({});
-
+  const [movedCategories, setMovedCategories] = useState({from: "", to: ""})
   useEffect(() => {
     viewCategory();
   },[])
@@ -33,6 +33,26 @@ const Category = () => {
     await API.categoryDelete(id)
     viewCategory();
     setCatSelected({});
+  }
+
+  const moveCategory = async(e,category) => {
+    e.preventDefault()
+    const props = movedCategories
+
+    if(props.from === ""){
+      props.from = category
+      setMovedCategories(props)
+    }else if(props.to === ""){
+      props.to = category
+      setMovedCategories(props)
+
+      API.categoryModify({from : movedCategories.from, to : movedCategories.to})
+      .then(() => {
+        //refresh
+        setMovedCategories({from: "", to: ""})
+        viewCategory();
+      })
+    }
   }
 
   const modifyCategory = async() => {
@@ -69,6 +89,9 @@ const Category = () => {
                       </div>
                       <div className="tiers" onClick={() => deleteCategory(category._id)}>
                         <img src="../../images/bin.png" alt="Supprimer"/>
+                      </div>
+                      <div className="tiers" onClick={(e) => moveCategory(e, category)}>
+                        <img src="../../images/move.png" alt="Ajouter"/>
                       </div>
                     </div>
                   </div>
