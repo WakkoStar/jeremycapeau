@@ -96,8 +96,11 @@ const Gallery = (props) => {
       <div className="Gallery">
       <HorizontalScroll
       reverseScroll={true}
-      className="horizontal-scroll"
+      style={{overflow: 'scroll'}}
       >
+        <span>
+          <div style={{width: "23vw", height:"100vh"}}/>
+        </span>
         {
           rubriques.map( (rubrique) => {
             const bIsLink = rubrique.img_data.startsWith("http")
