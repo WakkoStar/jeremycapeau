@@ -69,7 +69,7 @@ const Contact = () => {
               <p>Nom du contact</p>
               <input type="text" name="name" required/>
               <p>Lien </p>
-              <input type="text" name="link" required/>
+              <input type="text" name="link"/>
               <input type="submit" value='Importer'/>
           </form>
         </div>
@@ -77,14 +77,28 @@ const Contact = () => {
         <div style={{display: idSelected ? "flex": "none"}}>
           <h1>Modifier</h1>
           <form onSubmit={disableButtons} action='/api/contact/modify' method='post' encType="multipart/form-data">
+              
               <label htmlFor="modify_logo">Modifier l'image</label>
               <input type="file" name="logo" id="modify_logo"/>
+
               <p>Nom du contact</p>
-              <input type="text" value={nomSelected} name="nom" onChange={(e) =>setNomSelected(e.target.value)} required/>
+              <input 
+                type="text"
+                value={nomSelected} 
+                name="nom" 
+                onChange={(e) =>setNomSelected(e.target.value)} 
+                required
+              />
+
               <p>Lien </p>
-              <input type="text" value={linkSelected} name="link" onChange={(e) =>setLinkSelected(e.target.value)} required/>
+              <input 
+                type="text" 
+                value={linkSelected} 
+                name="link" 
+                onChange={(e) =>setLinkSelected(e.target.value)}
+              />
+
               <input type="hidden" value={idSelected} name="id"/>
-              <input type="hidden" value={localStorage.getItem('token')} name="token"/>
               <input type="submit" value='Modifier'/>
           </form>
           <button onClick={() => deleteContact()}>Supprimer</button>

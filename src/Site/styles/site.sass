@@ -103,13 +103,16 @@ $black: #444141
         padding-left: 23%
         width: 100%
         overflow: hidden
+        div.horizontal-scroll
+          position: inherit
+          display: flex
         a:hover
           div
             opacity: 1
         span, a
           position: relative
           text-decoration: none
-          div
+          div.view-video
             position: absolute
             opacity: 0
             transition: all .3s
@@ -130,6 +133,7 @@ $black: #444141
               color: white
           img
             height: 100vh
+            margin: 0 0.5px
 
       .Apropos
         display: flex

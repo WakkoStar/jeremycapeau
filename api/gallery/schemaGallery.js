@@ -13,6 +13,11 @@ const gallerySchema = mongoose.Schema(
     category_id: {
       type: String,
       required: true
+    },
+    index: {
+      type: Number,
+      required: false,
+      index: true
     }
   }
 );

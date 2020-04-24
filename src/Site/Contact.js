@@ -24,7 +24,7 @@ const Contact = () => {
             let link =  "../../logos/" + contact.picture_id
 
             return (
-                <a href={contact.link_id} rel="noopener noreferrer" target="_blank">
+                <a {...contact.link_id ? `href=${contact.link_id}` : ""} rel="noopener noreferrer" target="_blank">
                   <LazyLoadImage src={link} effect="opacity"/>
                   <p>{contact.nom}</p>
                 </a>

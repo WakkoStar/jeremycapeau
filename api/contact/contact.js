@@ -6,12 +6,12 @@ const add = async(req, res) => {
   //get files and body of request
   const {logo} = req.files
   const {name, link} = req.body
-  if(!logo || !name || !link) return res.sendStatus(400)
+  if(!logo || !name ) return res.sendStatus(400)
   //create object
   const contact = {
     nom : name,
     picture_id: logo.name,
-    link_id: link
+    link_id: link? link : ""
   }
   //execute response
   try{
@@ -48,7 +48,7 @@ const view = async(req, res) => {
 const modify = async(req, res) => {
   //get request
   const {nom, id, link} = req.body;
-  if (!nom || !id || !link) return res.sendStatus(400)
+  if (!nom || !id) return res.sendStatus(400)
   //execute response
   try {
     //If files is passed in request

@@ -11,6 +11,7 @@ router.use(function (req, res, next) {
 
 router.post('/add',authorization.auth, gallery.add);
 router.post('/delete',authorization.auth, gallery.delete);
+router.post('/move',authorization.auth, gallery.move)
 router.get('/view', gallery.view);
 
 module.exports = router;

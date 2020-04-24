@@ -8,7 +8,7 @@ const Navbar = (props) => {
 
   const [display, setDisplay] = useState(true)
   const [fontAvailable, setFontAvailable] = useState(false)
-  const isMobile = window.screen.availWidth < 500
+  const [isMobile, setIsMobile] = useState(window.screen.availWidth < 500)
 
   useEffect(() =>{
     var font = new FontFaceObserver('Oswald', {weight: 400});
@@ -19,17 +19,30 @@ const Navbar = (props) => {
       setFontAvailable(false)
     });
     toggleHeight();
-  },[])
+  },[isMobile])
 
-  if(isMobile){
-    //Event listener
-    $('li,#home').on('click', function(){
+  $(window).on('orientationchange', () => {
+    setIsMobile(window.screen.availWidth < 500)
+    if(window.screen.availWidth < 500){
+      setDisplay(false)
+      $('nav').height("10vh")
+      $('#links').css("visibility", "hidden")
+    }else{
+      setDisplay(true)
+      $('nav').height("100vh")
+      $('#links').css("visibility", "visible")
+    }
+  })
+  //Event listener
+  $('li,#home').on('click', function(){
+    if(isMobile){
       $('nav').height("10vh")
       $('#links').css("visibility", "hidden")
       $('#menu').attr('src', '../../images/burger.png')
       setDisplay(false)
-    });
-  }
+    }
+  })
+  
 
   const toggleHeight = () => {
     if(isMobile){

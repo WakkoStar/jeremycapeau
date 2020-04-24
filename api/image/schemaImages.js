@@ -6,6 +6,11 @@ const imagesSchema = mongoose.Schema(
       type: String,
       unique: true,
       required: true
+    },
+    index: {
+      type: Number,
+      required: false,
+      index: true,
     }
   }
 );

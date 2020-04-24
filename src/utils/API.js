@@ -37,7 +37,6 @@ export default {
       return axios.post(`/api/category/delete`, {id}, {headers})
     },
     categoryModify: function(category) {
-      console.log(category)
       return axios.post(`/api/category/modify`, {category}, {headers})
     },
 ///////////GALLERY/////////////////////
@@ -55,8 +54,11 @@ export default {
       return axios.post(`/api/pdfs/delete`, {id}, {headers})
     },
 /////////RUBRIQUE////////////
-    rubriqueAdd: function(category_id, img_id, img_data) {
-      return axios.post(`/api/gallery/add`, {category_id, img_id, img_data}, {headers});
+    rubriqueAdd: function(category_id, img_id, img_data, index) {
+      return axios.post(`/api/gallery/add`, {category_id, img_id, img_data, index}, {headers});
+    },
+    rubriqueMove: function(rubrique) {
+      return axios.post(`/api/gallery/move`, {rubrique}, {headers});
     },
     rubriqueDelete: function(category_id, img_id) {
       return axios.post(`/api/gallery/delete`, {category_id, img_id}, {headers});

@@ -12,7 +12,7 @@ const imageminJpegtran = require('imagemin-jpegtran');
 //////VIEW
 const view = async(req, res) => {
   //find images
-  const images = await Images.find({}).sort({index: 'desc'});;
+  const images = await Images.find({}).sort({index: 'desc'})
 
   if(!images){
     return res.sendStatus(400)
@@ -59,7 +59,8 @@ const add = async(req, res) => {
     {
       //create an object
       const img = {
-          picture_id: data
+          picture_id: data,
+          index: await Images.countDocuments({})
       };
       //save image in db
       const imageData = new Images(img);
@@ -67,17 +68,19 @@ const add = async(req, res) => {
     }
 
     if(datasArray.length > 0)
-    {
+    { 
+      const count = await Images.countDocuments({})
       //for each images
       datasArray.map(
-        async(data) => {
+        async(data, index) => {
           //if image doesn't already exists
           const dataImages = await Images.findOne({picture_id: data.name})
           if (!dataImages)
           {
             //create an object
             const img = {
-                picture_id: data.name
+                picture_id: data.name,
+                index: count + index 
             };
 
             //move file

@@ -6,11 +6,14 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import HorizontalScroll from 'react-scroll-horizontal'
 
+import $ from 'jquery'
+
 const Gallery = (props) => {
 
   const [rubriques, setRubriques] = useState([])
+  const [isMobile, setIsMobile] = useState(window.screen.availWidth < 500)
+  
   const { categorie } = props
-  const isMobile = window.screen.availWidth < 500
 
   useEffect(() => {
 
@@ -28,6 +31,9 @@ const Gallery = (props) => {
 
   },[categorie])
 
+  $(window).on('orientationchange', () => {
+    setIsMobile(window.screen.availWidth < 500)
+  })
 
   const ImageDisplay = (props) => {
     const {rubrique} = props
@@ -60,7 +66,7 @@ const Gallery = (props) => {
           placeHoldersrc={preview}
           effect="opacity"
         />
-        <div><p>Visionner la vidéo</p></div>
+        <div className="view-video"><p>Visionner la vidéo</p></div>
       </a>
     )
   }
@@ -90,7 +96,7 @@ const Gallery = (props) => {
       <div className="Gallery">
       <HorizontalScroll
       reverseScroll={true}
-      style={{position:'inherit', display:'flex'}}
+      className="horizontal-scroll"
       >
         {
           rubriques.map( (rubrique) => {
