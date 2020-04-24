@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 import $ from "jquery";
 import { CSSTransition } from 'react-transition-group';
 import FontFaceObserver from 'fontfaceobserver'
+import { isMobile } from 'react-device-detect';
 
 const Navbar = (props) => {
 
   const [display, setDisplay] = useState(true)
   const [fontAvailable, setFontAvailable] = useState(false)
   const [isMobile, setIsMobile] = useState(window.screen.availWidth < 500)
-
   useEffect(() =>{
     var font = new FontFaceObserver('Oswald', {weight: 400});
     font.load()
@@ -23,6 +23,7 @@ const Navbar = (props) => {
 
   $(window).on('resize', () => {
     setIsMobile(window.screen.availWidth < 500)
+
     if(window.screen.availWidth < 500){
       setDisplay(false)
       $('nav').height("10vh")
@@ -35,7 +36,7 @@ const Navbar = (props) => {
   })
   //Event listener
   $('li,#home').on('click', function(){
-    if(isMobile){
+    if(window.screen.availWidth < 500){
       $('nav').height("10vh")
       $('#links').css("visibility", "hidden")
       $('#menu').attr('src', '../../images/burger.png')
@@ -45,7 +46,7 @@ const Navbar = (props) => {
   
 
   const toggleHeight = () => {
-    if(isMobile){
+    if(window.screen.availWidth < 500){
       if(display){
         $('nav').height("10vh")
         $('#links').css("visibility", "hidden")
