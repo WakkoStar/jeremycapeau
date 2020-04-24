@@ -86,12 +86,12 @@ app.use("/api/contact", contact);
 const apropos = require(__dirname + "/api/bio/aproposController");
 app.use('/api/apropos', apropos);
 
-/*
+
 //react
 app.get('*',(req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
-*/
+
 //Définition et mise en place du port d'écoute
 const port = 8080;
 app.listen(port, () => console.log(`Listening on port ${port}`));
