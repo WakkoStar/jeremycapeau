@@ -22,13 +22,21 @@ const Contact = () => {
         contacts.map(
           contact => {
             let link =  "../../logos/" + contact.picture_id
-
-            return (
-                <a {...contact.link_id ? `href=${contact.link_id}` : ""} rel="noopener noreferrer" target="_blank">
+            if(contact.link_id !== ""){
+              return (
+                <a href={contact.link_id} rel="noopener noreferrer" target="_blank">
                   <LazyLoadImage src={link} effect="opacity"/>
                   <p>{contact.nom}</p>
                 </a>
-            )
+              )
+            }else{
+              return (
+                <a>
+                  <LazyLoadImage src={link} effect="opacity"/>
+                  <p>{contact.nom}</p>
+                </a>
+              )
+            }
           }
         )
       }
