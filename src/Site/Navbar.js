@@ -21,7 +21,7 @@ const Navbar = (props) => {
     toggleHeight();
   },[isMobile])
 
-  $(window).on('orientationchange', () => {
+  $(window).on('resize', () => {
     setIsMobile(window.screen.availWidth < 500)
     if(window.screen.availWidth < 500){
       setDisplay(false)

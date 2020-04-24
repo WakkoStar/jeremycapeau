@@ -5,13 +5,13 @@ import { LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import HorizontalScroll from 'react-scroll-horizontal'
-
+import {isMobile } from 'react-device-detect'
 import $ from 'jquery'
 
 const Gallery = (props) => {
 
   const [rubriques, setRubriques] = useState([])
-  const [isMobile, setIsMobile] = useState(window.screen.availWidth < 500)
+  const [isMobile_layout, setIsMobile] = useState(window.screen.availWidth < 500)
   
   const { categorie } = props
 
@@ -31,7 +31,7 @@ const Gallery = (props) => {
 
   },[categorie])
 
-  $(window).on('orientationchange', () => {
+  $(window).on('resize', () => {
     setIsMobile(window.screen.availWidth < 500)
   })
 
@@ -71,7 +71,7 @@ const Gallery = (props) => {
     )
   }
 
-  if(isMobile){
+  if(isMobile_layout){
     return (
       <div className="Gallery">
         {
