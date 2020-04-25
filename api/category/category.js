@@ -80,7 +80,7 @@ const modify = async(req, res) => {
     }
     //if we want to update the name
     if(category.nom){
-      await Category.updateOne({_id: category._id}, {nom : category.nom, visible: category.visible})
+      await Category.updateOne({_id: category._id}, {nom : category.nom, visible: category.visible, link: slugify(nom),})
     }
     //if we want to update the index
     if(category.from){
@@ -105,8 +105,6 @@ exports.modify = modify;
 
 function slugify (str) {
   var map = {
-      '-' : ' ',
-      '-' : '_',
       'a' : 'á|à|ã|â|À|Á|Ã|Â',
       'e' : 'é|è|ê|É|È|Ê',
       'i' : 'í|ì|î|Í|Ì|Î',
@@ -117,7 +115,7 @@ function slugify (str) {
   };
   
   str = str.toLowerCase();
-  
+  str = str.replace(/\s/g, '')
   for (var pattern in map) {
       str = str.replace(new RegExp(map[pattern], 'g'), pattern);
   };

@@ -7,7 +7,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import HorizontalScroll from 'react-scroll-horizontal'
 
 import $ from 'jquery'
-import setLink from '../utils/Link';
 
 const Gallery = (props) => {
 

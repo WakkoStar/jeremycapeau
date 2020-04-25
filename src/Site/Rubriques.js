@@ -12,7 +12,7 @@ const Rubriques = (props) => {
         props.cat.map( (categorie, index) => {
 
           let link =  '../../preview/' + categorie.preview_id
-          let path = "/" + categorie.nom
+          let path = "/" + categorie.link
           if(categorie.visible){
             return(
                 <Link to={path} id={index}>

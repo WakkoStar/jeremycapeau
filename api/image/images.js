@@ -64,7 +64,7 @@ const add = async(req, res) => {
                 //create an object
                 const img = {
                     picture_id: data.name,
-                    link: link,
+                    link: link ? link : "undefined",
                     index: count + index
                 };
 
@@ -132,16 +132,10 @@ const add = async(req, res) => {
     try {
         //delete previous image
         const imagePrevious = await Images.findOne({_id: id})
-        //verify isn't a video
-        const bIsLink = imagePrevious.picture_id.startsWith('http');
-        if(!bIsLink){
         fs.unlink('public/images/'+ imagePrevious.picture_id, (err) => {
-            //nothing
         })
         fs.unlink('public/preview/'+ imagePrevious.picture_id, (err) => {
-            //nothing
         })
-        }
 
         //delete imgs of galleries and category preview
         await Gallery.deleteMany({img_id: id});

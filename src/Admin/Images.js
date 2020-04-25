@@ -1,14 +1,18 @@
+
 import React,{useState, useEffect} from 'react'
+import axios from "axios";
 import API from "../utils/API"
-import setLink from '../utils/Link'
 import $ from "jquery";
+
+axios.defaults.withCredentials = true
+
 const Images = () => {
 
 const [images, setImages] = useState([]);
 const [countFiles, setCountFiles] = useState(0)
 const [file, setFile] = useState([])
 const [link, setLink] = useState()
-
+const [load, setLoad] = useState(0)
 useEffect(() =>{
     viewImages();
 },[])
@@ -19,15 +23,29 @@ const viewImages = async() => {
 }
 
 const addImages = async() => {
-    const images = new FormData()
-    for (let i = 0; i < file.length; i++) {
-        images.append('datas', file[i])
-    }
-    images.append('link', link)
-    await API.imagesAdd(images);
+    upload(file, link)
     viewImages();
     setFile([])
     setCountFiles(0)
+}
+
+const upload = (file) => {
+    const config = {
+        onUploadProgress: function(progressEvent) {
+        var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+        setLoad(percentCompleted)
+        }
+    }
+
+    let data = new FormData()
+    data.append('link', link)
+    for (let i = 0; i < file.length; i++) {
+        data.append('datas', file[i])
+    } 
+
+    axios.post('/api/images/', data, config)
+        .then(res => setLoad(0))
+        .catch(err => alert('erreur...'))
 }
 
 const deleteImages = async(id) => {
@@ -86,7 +104,7 @@ return (
             
             <p>Lien vidéo</p>
             <input type="text" name="link" onChange={(e) => setLink(e.target.value)}/>
-            <input type="submit" value='Confirmer' onClick={addImages}/>
+            <input type="submit" value={load ? load : 'Confirmer'} onClick={addImages}/>
         </div>
     </div>
     </div>
