@@ -37,7 +37,7 @@ const deleteImages = async(id) => {
 
 const ImageDisplay = (props) => {
     const {img} = props
-    if(!rubrique.link.startsWith('http')){
+    if(!img.link.startsWith('http')){
         return (
             <div key={img._id} className="images">
                 <img alt={img.picture_id} src={"../../preview/" + img.picture_id}/>
