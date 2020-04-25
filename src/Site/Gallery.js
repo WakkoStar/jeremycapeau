@@ -76,7 +76,7 @@ const Gallery = (props) => {
       <div className="Gallery">
         {
           rubriques.map( (rubrique) => {
-            const bIsLink = rubrique.link !== "undefined"
+            const bIsLink = rubrique.link.startsWith('http')
             if(bIsLink){
               return <VideoDisplay rubrique={rubrique} />
             }else{
@@ -98,7 +98,7 @@ const Gallery = (props) => {
           </span>
           {
             rubriques.map( (rubrique) => {
-              const bIsLink = rubrique.link !== "undefined"
+              const bIsLink = rubrique.link.startsWith('http')
               if(bIsLink){
                   return <VideoDisplay rubrique={rubrique} />
               }else{

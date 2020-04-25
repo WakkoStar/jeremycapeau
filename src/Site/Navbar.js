@@ -99,7 +99,7 @@ const Navbar = (props) => {
         <ul>
           {
             props.cat.map( categorie => {
-              let path = "/" + categorie.nom
+              let path = "/" + categorie.link
               if(categorie.visible){
                 return (
                   <li key={categorie._id}>

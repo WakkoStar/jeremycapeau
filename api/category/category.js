@@ -12,6 +12,7 @@ const add = async(req, res) => {
   const category = {
     nom: nom,
     visible: true,
+    link: slugify(nom),
     preview_id: "preview.png",
     index: await Category.countDocuments({})
   }
@@ -46,7 +47,6 @@ const view = async(req, res) => {
     return res.sendStatus(500)
   }
 }
-
 
 ///DELETE
 const deleteC = async(req, res) => {
@@ -97,7 +97,30 @@ const modify = async(req, res) => {
     return res.sendStatus(500)
   }
 }
+
 exports.add = add;
 exports.view = view;
 exports.delete = deleteC;
 exports.modify = modify;
+
+function slugify (str) {
+  var map = {
+      '-' : ' ',
+      '-' : '_',
+      'a' : 'á|à|ã|â|À|Á|Ã|Â',
+      'e' : 'é|è|ê|É|È|Ê',
+      'i' : 'í|ì|î|Í|Ì|Î',
+      'o' : 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
+      'u' : 'ú|ù|û|ü|Ú|Ù|Û|Ü',
+      'c' : 'ç|Ç',
+      'n' : 'ñ|Ñ'
+  };
+  
+  str = str.toLowerCase();
+  
+  for (var pattern in map) {
+      str = str.replace(new RegExp(map[pattern], 'g'), pattern);
+  };
+
+  return str;
+};

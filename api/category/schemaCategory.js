@@ -10,6 +10,10 @@ const categorySchema = mongoose.Schema(
       type: String,
       required: true
     },
+    link: {
+      type: String,
+      required: true
+    },
     visible: {
       type: Boolean,
       required: true

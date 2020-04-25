@@ -18,7 +18,7 @@ const Main = (props) => {
            </Route>
           {
             categories.map((categorie) => {
-              let path = "/" + categorie.nom
+              let path = "/" + categorie.link
               return(
                 <Route path={path} key={categorie._id}>
                     <Gallery categorie={categorie}/>
