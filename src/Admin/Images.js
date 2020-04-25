@@ -83,10 +83,6 @@ const setFiles = (e) => {
     setFile(e.target.files)
 }
 
-const disableButtons = () => {
-    $("input[type='submit']").prop('disabled', 'true')
-}
-
 return (
     <div className="body_dashboard">
     <div className="main_dashboard" id="images">

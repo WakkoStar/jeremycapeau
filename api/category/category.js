@@ -80,7 +80,10 @@ const modify = async(req, res) => {
     }
     //if we want to update the name
     if(category.nom){
-      await Category.updateOne({_id: category._id}, {nom : category.nom, visible: category.visible, link: slugify(nom),})
+      await Category.updateOne(
+        {_id: category._id}, 
+        {nom : category.nom, visible: category.visible, link: slugify(category.nom),}
+        )
     }
     //if we want to update the index
     if(category.from){
