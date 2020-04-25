@@ -1,8 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import API from "../utils/API";
-
 import {Link} from "react-router-dom";
-import setLink from './Link'
 
 const Category = () => {
 
@@ -10,6 +8,7 @@ const Category = () => {
   const[nom, setNom] = useState(undefined);
   const [catSelected, setCatSelected] = useState({});
   const [movedCategories, setMovedCategories] = useState({from: "", to: ""})
+  
   useEffect(() => {
     viewCategory();
   },[])
@@ -76,7 +75,7 @@ const Category = () => {
         {
           categories.map(
             (category) => {
-              let link = setLink(category.preview_id)
+              let link = "../../preview/" + category.preview_id
               return (
                 <div key={category._id} className="category">
                   <div style={{backgroundImage: `url(${link})`}}>

@@ -9,7 +9,7 @@ router.use(function (req, res, next) {
   next();
 });
 
-router.get('/view', apropos.view);
-router.post('/modify',authorization.auth, apropos.modify);
+router.get('/', apropos.view);
+router.put('/',authorization.auth, apropos.modify);
 
 module.exports = router;

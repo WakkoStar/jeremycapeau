@@ -22,7 +22,7 @@ const Contact = () => {
         contacts.map(
           contact => {
             let link =  "../../logos/" + contact.picture_id
-            if(contact.link_id !== ""){
+            if(contact.link_id.startsWith('http') || contact.link_id.startsWith('mail')){
               return (
                 <a href={contact.link_id} rel="noopener noreferrer" target="_blank">
                   <LazyLoadImage src={link} effect="opacity"/>

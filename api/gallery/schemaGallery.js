@@ -6,10 +6,6 @@ const gallerySchema = mongoose.Schema(
       type: String,
       required: true
     },
-    img_data:{
-      type: String,
-      required: true
-    },
     category_id: {
       type: String,
       required: true

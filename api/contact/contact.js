@@ -24,8 +24,9 @@ const add = async(req, res) => {
     const contactData = new Contact(contact);
     await contactData.save();
     //redirect user
-    return res.redirect("http://jeremycapeau.fr/dashboard/contact");
+    return res.sendStatus(200)
   }catch(e){
+    console.log(e)
     return res.sendStatus(500)
   }
 
@@ -47,6 +48,7 @@ const view = async(req, res) => {
 ///MODIFY
 const modify = async(req, res) => {
   //get request
+  console.log(req.body)
   const {nom, id, link} = req.body;
   if (!nom || !id) return res.sendStatus(400)
   //execute response
@@ -69,7 +71,7 @@ const modify = async(req, res) => {
       await Contact.updateOne({_id: id},{nom, link_id: link});
     }
     //redirect user
-    return res.redirect("http://jeremycapeau.fr/dashboard/contact");
+    return res.sendStatus(200)
 
   } catch (e) {
     console.log(e);

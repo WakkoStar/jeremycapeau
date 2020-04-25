@@ -9,9 +9,9 @@ router.use(function (req, res, next) {
   next();
 });
 
-router.post('/add',authorization.auth, gallery.add);
-router.post('/delete',authorization.auth, gallery.delete);
-router.post('/move',authorization.auth, gallery.move)
-router.get('/view', gallery.view);
+router.post('/',authorization.auth, gallery.add);
+router.delete('/',authorization.auth, gallery.delete);
+router.put('/',authorization.auth, gallery.move)
+router.get('/', gallery.view);
 
 module.exports = router;

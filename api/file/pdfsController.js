@@ -9,8 +9,8 @@ router.use(function (req, res, next) {
   next();
 });
 
-router.post('/add',authorization.auth, pdfs.add);
-router.post('/delete',authorization.auth, pdfs.delete);
-router.get('/view',pdfs.view);
+router.post('/',authorization.auth, pdfs.add);
+router.delete('/',authorization.auth, pdfs.delete);
+router.get('/',pdfs.view);
 
 module.exports = router;

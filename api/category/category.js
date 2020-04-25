@@ -4,12 +4,10 @@ const Gallery = require("../gallery/schemaGallery.js");
 const add = async(req, res) => {
   //get nom of request
   const { nom } = req.body;
-
   //if nom is submitted = erro
   if(!nom){
     return res.sendStatus(400)
   }
-
   //Create object of a category
   const category = {
     nom: nom,
@@ -23,7 +21,6 @@ const add = async(req, res) => {
     //save category in db
     const categoryData = new Category(category);
     await categoryData.save()
-
     return res.status(200).json({
       msg : nom + "ajouté"
     })
@@ -60,7 +57,7 @@ const deleteC = async(req, res) => {
   try {
     //delete category
     await Category.deleteOne({_id : id})
-    await Gallery.deleteOne({category_id: id})
+    await Gallery.deleteMany({category_id: id})
     return res.status(200).json({
       msg: id + " > Catégorie supprimé"
     })
@@ -77,30 +74,22 @@ const modify = async(req, res) => {
   if (!category) return res.sendStatus(400)
   //Execute response
   try{
-    let msgDetails = "";
-
     //if we want to update the preview image
     if(category.preview_id){
       await Category.updateOne({_id: category._id}, {preview_id : category.preview_id})
-      msgDetails = "" + category.preview_id;
     }
-
     //if we want to update the name
     if(category.nom){
       await Category.updateOne({_id: category._id}, {nom : category.nom, visible: category.visible})
-      msgDetails = "" + category.nom;
     }
-
     //if we want to update the index
     if(category.from){
       await Category.updateOne({_id: category.from._id}, {index : category.to.index})
       await Category.updateOne({_id: category.to._id}, {index : category.from.index})
-      msgDetails = "" + category.from._id;
     }
 
-
     return res.status(200).json({
-      msg: "Catégorie modifié : " + msgDetails
+      msg: "Catégorie modifié"
     })
 
   }catch (e){

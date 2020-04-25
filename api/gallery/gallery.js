@@ -1,17 +1,16 @@
 const Gallery = require("./schemaGallery.js");
-
+const Images = require("../image/schemaImages.js")
 ////ADD
 const add = async(req, res) => {
   //get body of request
-  const { img_id, category_id, img_data, index } = req.body;
+  const { img_id, category_id, index } = req.body;
   //if img_id and category_id isn't submitted
-  if(!img_id || !category_id || !img_data){
+  if(!img_id || !category_id){
     return res.sendStatus(400)
   }
   //create object
   const gallery = {
     img_id,
-    img_data,
     category_id,
     index
   }
@@ -30,20 +29,35 @@ const add = async(req, res) => {
     console.log(e)
     return res.sendStatus(500)
   }
-
 }
 ////VIEW
 const view = async(req, res) => {
+  let gallery = [];
   //find galleries
-  const gallery = await Gallery.find({}).sort({index: 'desc'})
-  //execute response
-  try {
+  Gallery.find({}).sort({index: 'desc'})
+  .then(async(result) => {
+    for (let index = 0; index < result.length; index++) {
+      //get each image of the rubrique
+      const el = result[index] 
+      const img = await Images.findOne({_id: el.img_id })
+      //set gallery
+      gallery[index] = {
+        _id: el._id,
+        img_id: el.img_id,
+        img_data: img.picture_id,
+        link: img.link,
+        category_id: el.category_id,
+        index: el.index
+      } 
+    }
     return res.status(200).json({
       gallery: gallery
     })
-  } catch (e) {
+  })
+  .catch((e) => {
+    console.log(e)
     return res.sendStatus(500)
-  }
+  })
 }
 
 //DELETE
@@ -63,6 +77,7 @@ const deleteC = async(req, res) => {
     return res.sendStatus(500)
   }
 }
+
 const move = async(req, res) => {
   const {rubrique} = req.body
   try {
@@ -73,8 +88,8 @@ const move = async(req, res) => {
     console.log(error)
     return res.sendStatus(500)
   }
-  
 }
+
 exports.add = add;
 exports.view = view;
 exports.delete = deleteC;

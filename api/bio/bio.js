@@ -15,6 +15,8 @@ const view = async(req, res) => {
 
 /////MODIFY
 const modify = async(req, res) => {
+  console.log(req.body)
+  console.log(req.files)
   //Find texte of request
   const {texte} = req.body;
   if(!texte) return res.sendStatus(400)
@@ -42,8 +44,7 @@ const modify = async(req, res) => {
       //Update only the name
       await Apropos.updateOne({_id: "5e836b90d6a53a1844345288"},{texte})
     }
-    //redirect user
-    return res.redirect("http://jeremycapeau.fr/dashboard/apropos");
+    return res.sendStatus(200)
   }catch(e){
     return res.sendStatus(500)
   }

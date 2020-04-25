@@ -7,6 +7,10 @@ const imagesSchema = mongoose.Schema(
       unique: true,
       required: true
     },
+    link: {
+      type:String,
+      required: false
+    },
     index: {
       type: Number,
       required: false,

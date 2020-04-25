@@ -5,6 +5,8 @@ import $ from "jquery";
 const Pdfs = () => {
 
   const [pdfs, setPdfs] = useState([]);
+  const [file, setFile] = useState()
+  const [nom, setNom] = useState()
 
   useEffect(() =>{
      viewPdfs();
@@ -20,8 +22,13 @@ const Pdfs = () => {
     viewPdfs();
   }
 
-  const disableButtons = () => {
-    $("input[type='submit']").prop('disabled', 'true')
+  const addPdf = async() => {
+    const pdf = new FormData()
+    pdf.append('data', file)
+    pdf.append('nom', nom)
+
+    await API.pdfsAdd(pdf)
+    viewPdfs()
   }
 
   return (
@@ -50,13 +57,11 @@ const Pdfs = () => {
       <div className="sidebar_dashboard">
         <div>
           <h1>Ajouter un fichier</h1>
-          <form onSubmit={disableButtons} action='/api/pdfs/add' method='post' encType="multipart/form-data">
               <label htmlFor="data">Importer un fichier</label>
-              <input type="file" id="data" name="data" required/>
+              <input type="file" id="data" name="data" required onChange={(e) => setFile(e.target.files[0])}/>
               <p>Nom</p>
-              <input type="text" name="nom" required/>
-              <input type="submit" value='Importer'/>
-          </form>
+              <input type="text" name="nom" required onChange={(e) => setNom(e.target.value)}/>
+              <input type="submit" value='Importer' onClick={addPdf}/>
           </div>
       </div>
     </div>

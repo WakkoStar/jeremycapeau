@@ -5,8 +5,9 @@ import { LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import HorizontalScroll from 'react-scroll-horizontal'
-import {isMobile } from 'react-device-detect'
+
 import $ from 'jquery'
+import setLink from '../utils/Link';
 
 const Gallery = (props) => {
 
@@ -50,13 +51,12 @@ const Gallery = (props) => {
 
   const VideoDisplay = (props) => {
     const {rubrique} = props
-    const videoID = rubrique.img_data.replace("https://www.youtube.com/embed/", "")
-    let link = "http://i3.ytimg.com/vi/"+ videoID +"/maxresdefault.jpg"
-    let preview = link
+    let link =  "../../images/" + rubrique.img_data
+    let preview = "../../preview/" + rubrique.img_data
 
     return(
       <a
-        href={rubrique.img_data}
+        href={rubrique.link}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -76,13 +76,9 @@ const Gallery = (props) => {
       <div className="Gallery">
         {
           rubriques.map( (rubrique) => {
-            const bIsLink = rubrique.img_data.startsWith("http")
+            const bIsLink = rubrique.link !== "undefined"
             if(bIsLink){
-              return (
-                <span>
-                  <iframe title={rubrique._id} src={rubrique.img_data} allowfullscreen/>
-                </span>
-              )
+              return <VideoDisplay rubrique={rubrique} />
             }else{
               return <ImageDisplay rubrique={rubrique} />
             }
@@ -92,26 +88,25 @@ const Gallery = (props) => {
     )
   }else{
     return (
-
       <div className="Gallery">
-      <HorizontalScroll
-      reverseScroll={true}
-      style={{overflow: 'scroll'}}
-      >
-        <span>
-          <div style={{width: "23vw", height:"100vh"}}/>
-        </span>
-        {
-          rubriques.map( (rubrique) => {
-            const bIsLink = rubrique.img_data.startsWith("http")
-            if(bIsLink){
-                return <VideoDisplay rubrique={rubrique} />
-            }else{
-                return <ImageDisplay rubrique={rubrique} />
-            }
-          })
-        }
-        </HorizontalScroll>
+        <HorizontalScroll
+          reverseScroll={true}
+          style={{overflow: 'scroll'}}
+        >
+          <span>
+            <div style={{width: "23vw", height:"100vh"}}/>
+          </span>
+          {
+            rubriques.map( (rubrique) => {
+              const bIsLink = rubrique.link !== "undefined"
+              if(bIsLink){
+                  return <VideoDisplay rubrique={rubrique} />
+              }else{
+                  return <ImageDisplay rubrique={rubrique} />
+              }
+            })
+          }
+          </HorizontalScroll>
         </div>
     )
   }
