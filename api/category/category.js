@@ -114,11 +114,14 @@ function slugify (str) {
       'o' : 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
       'u' : 'ú|ù|û|ü|Ú|Ù|Û|Ü',
       'c' : 'ç|Ç',
-      'n' : 'ñ|Ñ'
+      'n' : 'ñ|Ñ',
+      '-' : '/|$|',
+      ''  : '❤️'
   };
   
   str = str.toLowerCase();
-  str = str.replace(/\s/g, '')
+  str = str.replace(/\s/g, '-')
+  
   for (var pattern in map) {
       str = str.replace(new RegExp(map[pattern], 'g'), pattern);
   };
