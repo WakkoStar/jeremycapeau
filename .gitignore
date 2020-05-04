@@ -2,3 +2,4 @@ node_modules/**/*
 public/preview/
 public/images/
 public/biopic/
+.env
